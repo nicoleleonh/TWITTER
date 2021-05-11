@@ -1,0 +1,66 @@
+<h1>Tweets</h1>
+
+<%= render 'form', tweet: @tweet %>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+            <th>User</th>
+            <th>Tweet</th>
+            <th>Date Tweet</th>
+            <th>Image</th>
+            <th>Retweets</th>
+            <th>Like</th>
+            </tr>
+        
+        </thead>
+        
+        <tbody>
+        <div class="container">
+            <% @tweets.each do |t| %>
+            <tr> 
+                <td><%= t.user.username %></td>
+                <% unless t.retweet_id.nil? %>
+                    <td><%= link_to 'RT ', tweet_path(t.retweet_id) %> <%= t.content %></td>
+                <% else %>
+                    <td><%= t.content %></td>
+                <% end %>
+                <td><%= link_to t.timecreate, t %></td>
+                <td><%= image_tag(t.user.profile_picture, class: "rounded-circle", width: "45", height: "45" )  %></td>
+                <td><%= t.retweets %></td> 
+                <td><%= t.likes.count %></td>
+                
+                <% if signed_in? %>
+                     <% if like(t, current_user) %>
+                        <td>
+                            <%= link_to tweet_like_path(t, like(t, current_user)), method: :delete do %>
+                                <i class="far fa-heart"></i>
+                            <% end %>
+                        </td>
+                    <% else %>
+                        <td>
+                            <%= link_to tweet_likes_path(t), method: :post do %>
+                                <i class="fas fa-heart"></i>
+                            <% end %>
+                        </td>
+                    <% end %>
+                    <td><%= link_to 'Show', t %></td>
+                    <% if t.user == current_user %>
+                        <td><%= link_to 'Edit', edit_tweet_path(t) %></td>
+                        <td><%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% end %>
+                    <td><%= link_to 'Retweet', retweet_tweet_path(t), data: { confirm: 'Want RT?' }, method: :post %></td>
+                <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <%= paginate @tweets %>
+            <%= link_to_next_page @tweets, 'Show more tweets' %>
+        </div>
+    </div>
+</div>
+
