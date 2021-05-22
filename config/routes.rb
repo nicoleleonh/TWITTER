@@ -19,5 +19,10 @@ Rails.application.routes.draw do
       post 'follow'
     end
   end
+
+  namespace :api do
+    get ':fecha1/:fecha2', to: 'tweets#date_filter'
+    resources :news, controller: :tweets, only: :index
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
