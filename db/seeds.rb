@@ -38,3 +38,4 @@ end
 20.times do |i|
     u4.tweets.create(content: "Tweet #{i}")
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

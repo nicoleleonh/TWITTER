@@ -31,6 +31,9 @@ gem 'devise'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'kaminari'
+gem 'activeadmin'
+gem 'ransack'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

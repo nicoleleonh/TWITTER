@@ -1,0 +1,9 @@
+
+<% if signed_in? %> 
+
+    <% if current_user.friendships.find_by(friend_id: @user.id).nil? %>
+        <%= link_to 'Follow', follow_user_path(@user), method: :post, class: 'btn btn-primary' %>
+    <% else %>
+        <%= link_to 'Unfollow', follow_user_path(@user), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+<% end %>

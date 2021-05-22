@@ -1,6 +1,19 @@
 <h1>Tweets</h1>
 
+
+
+  <div class="container">
+    <%= search_form_for @q, class: 'col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3' do |f| %>
+      <%= f.search_field :content_cont, class: 'form-control form-control-dark', placeholder: 'Search...' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+
+<hr>
 <%= render 'form', tweet: @tweet %>
+
+
 
 <div class="container">
     <table class="table">
@@ -20,11 +33,11 @@
         <div class="container">
             <% @tweets.each do |t| %>
             <tr> 
-                <td><%= t.user.username %></td>
+                <td><%= link_to t.user.username, user_path(t.user) %></td>
                 <% unless t.retweet_id.nil? %>
                     <td><%= link_to 'RT ', tweet_path(t.retweet_id) %> <%= t.content %></td>
                 <% else %>
-                    <td><%= t.content %></td>
+                    <td><%= render_with_hashtags(t.content) %></td>
                 <% end %>
                 <td><%= link_to t.timecreate, t %></td>
                 <td><%= image_tag(t.user.profile_picture, class: "rounded-circle", width: "45", height: "45" )  %></td>
