@@ -3,31 +3,15 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-link heroku: https://ancient-river-16372.herokuapp.com/oauth/token
-Para ingresar a la API, seguir los pasos:
+Link heroku: https://ancient-river-16372.herokuapp.com/oauth/token
 
-Cliente heroku
-grant_type: password 
-email: {mail@usuario.com} (daniel@hotmail.com)
-password: {password_usuario} (123456)
-client_id: ZQM1o24zG9jbj7LD5qt0edtCfvjNO0a_H64zGsZGGt4
-client_secret: Rcmizqb6LwzpkiDP_qiQ2S7zd2ljxWR82Hy9xlqa40I
-Things you may want to cover:
 
-* Ruby version
+- Para ingresar a la API, seguir los pasos:
 
-* System dependencies
+- Cliente heroku
+- grant_type: password 
+- email: {mail@usuario.com} (daniel@hotmail.com)
+- password: {password_usuario} (123456)
+- client_id: ZQM1o24zG9jbj7LD5qt0edtCfvjNO0a_H64zGsZGGt4
+- client_secret: Rcmizqb6LwzpkiDP_qiQ2S7zd2ljxWR82Hy9xlqa40I
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
