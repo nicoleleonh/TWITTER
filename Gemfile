@@ -33,6 +33,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'activeadmin'
 gem 'ransack'
+gem 'doorkeeper'
 
 
 # Use Capistrano for deployment
